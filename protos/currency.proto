@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package currency_server;
+
+option go_package = "github.com/Gorillarock/proto-serv;go_proto_serv_grpc";
+
+service Currency {
+  rpc GetRate(RateRequest) returns (RateResponse);
+}
+
+message RateRequest {
+  string Base = 1;
+  string Destination = 2;
+}
+
+message RateResponse {
+  float Rate = 1;
+}
